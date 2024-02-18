@@ -2,12 +2,14 @@ import csv
 
 
 class BlockConstructor:
+
     '''Block Constructor Challenge.
         - This Progam reads a CSV file and constructs a valid block off the file.
     '''
+
     def __init__(self, weight):
         self.weight = weight
-    
+ 
 
     def read_mempool_csv(self):
         '''This method reads the CSV file and returns the data
@@ -26,9 +28,11 @@ class BlockConstructor:
 
 
     def get_highest_transaction_fees(self, mempool_transaction_fees):
+
         """This method gets the transaction with highest fees, to be included in a block.
             - TODO: Maximize the transaction fee, by selecting the transaction with highest fees 
         """
+
         highest_transaction_fee = mempool_transaction_fees[0]
         high_fee_transactions = []
         for transaction in mempool_transaction_fees:
@@ -38,11 +42,11 @@ class BlockConstructor:
         high_fee_transactions.append(highest_transaction_fee)
         print(high_fee_transactions)
 
-        # for transaction in mempool_transaction_fees:
-        #     if 
 
     def construct_block(self):
+
         """This method constructs a valid block, maximizing the transaction fee and block weight"""
+
         mempool_transactions = self.read_mempool_csv()
         # transaction_fees = []
         parent_transactions = {}
