@@ -1,15 +1,17 @@
 import csv
 
-'''Block Constructor Challenge.
-- This Progam reads a CSV file and constructs a valid block off the file.
-'''
+
 class BlockConstructor:
+    '''Block Constructor Challenge.
+        - This Progam reads a CSV file and constructs a valid block off the file.
+    '''
     def __init__(self, weight):
         self.weight = weight
     
-    '''This method reads the CSV file and returns the data
-    '''
+
     def read_mempool_csv(self):
+        '''This method reads the CSV file and returns the data
+        '''
         mempool_transactions = []
         try:
             with open('mempool.csv', mode='r') as file:
@@ -23,10 +25,10 @@ class BlockConstructor:
             print(e)
 
 
-    """This method gets the transaction with highest fees, to be included in a block.
-     - TODO: Maximize the transaction fee, by selecting the transaction with highest fees 
-    """
     def get_highest_transaction_fees(self, mempool_transaction_fees):
+        """This method gets the transaction with highest fees, to be included in a block.
+            - TODO: Maximize the transaction fee, by selecting the transaction with highest fees 
+        """
         highest_transaction_fee = mempool_transaction_fees[0]
         high_fee_transactions = []
         for transaction in mempool_transaction_fees:
@@ -39,12 +41,10 @@ class BlockConstructor:
         # for transaction in mempool_transaction_fees:
         #     if 
 
-
-    '''This method constructs a valid block, maximizing the transaction fee and block weight
-    '''
     def construct_block(self):
+        """This method constructs a valid block, maximizing the transaction fee and block weight"""
         mempool_transactions = self.read_mempool_csv()
-        transaction_fees = []
+        # transaction_fees = []
         parent_transactions = {}
         block_transactions = []
 
@@ -64,10 +64,9 @@ class BlockConstructor:
                     raise Exception("Maximum block size exceeded. You can't add more transactions to this block.")
 
         
-        print(block_transactions[0])
-        print(block_transactions[1])
-        print(block_transactions[2])
-        print(block_transactions[3])
+        for transaction in block_transactions:
+            print(transaction)
+        # print(block_transactions)
 
 
 
